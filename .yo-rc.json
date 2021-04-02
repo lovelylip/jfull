@@ -41,6 +41,8 @@
     "devDatabaseType": "mongodb",
     "prodDatabaseType": "mongodb",
     "clientPackageManager": "npm",
-    "languages": ["en", "vi"]
+    "languages": ["en", "vi"],
+    "lastLiquibaseTimestamp": 1617356655000,
+    "entities": ["DmCqbh"]
   }
 }

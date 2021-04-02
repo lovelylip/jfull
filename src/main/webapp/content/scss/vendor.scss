@@ -11,6 +11,11 @@ eg $input-color: red;
 @import '~bootstrap/scss/bootstrap';
 @import '~bootstrap-vue/src/index.scss';
 @import '~bootswatch/dist/journal/bootswatch';
+
+@import '~primevue/resources/themes/saga-blue/theme.css'; //theme
+@import '~primevue/resources/primevue.min.css'; //core css
+@import '~primeicons/primeicons.css'; //icons
+
 /* Dirty fix on navbar active link with bootswatch theme */
 nav li.router-link-active .navbar-dropdown-menu {
   color: $navbar-dark-active-color;

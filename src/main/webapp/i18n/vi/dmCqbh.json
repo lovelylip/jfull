@@ -1,0 +1,19 @@
+{
+  "gatewayApp": {
+    "dmCqbh": {
+      "home": {
+        "title": "Dm Cqbhs",
+        "refreshListLabel": "Refresh list",
+        "notFound": "No Dm Cqbhs found"
+      },
+      "detail": {
+        "title": "Dm Cqbh"
+      },
+      "id": "ID",
+      "ma": "Ma",
+      "ten": "Ten",
+      "maCha": "Ma Cha",
+      "tenCha": "Ten Cha"
+    }
+  }
+}

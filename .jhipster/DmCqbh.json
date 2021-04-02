@@ -1,0 +1,31 @@
+{
+  "databaseType": "mongodb",
+  "fields": [
+    {
+      "fieldName": "ma",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "ten",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "maCha",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "tenCha",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [],
+  "service": "serviceImpl",
+  "dto": "mapstruct",
+  "readOnly": true,
+  "pagination": "pagination",
+  "name": "DmCqbh",
+  "changelogDate": "20210402094415"
+}
