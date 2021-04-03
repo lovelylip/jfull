@@ -11,7 +11,7 @@ import org.springframework.data.mongodb.core.mapping.Field;
  * A DmCqbh.
  */
 @Document(collection = "dm_cqbh")
-public class DmCqbh extends AbstractAuditingEntity implements Serializable {
+public class DmCqbh implements Serializable {
 
     private static final long serialVersionUID = 1L;
 

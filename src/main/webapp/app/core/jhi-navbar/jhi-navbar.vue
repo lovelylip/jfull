@@ -37,10 +37,6 @@
             <font-awesome-icon icon="asterisk" />
             <span v-text="$t('global.menu.entities.chiTieu')">Chi Tieu</span>
           </b-dropdown-item>
-          <b-dropdown-item to="/dm-cqbh">
-            <font-awesome-icon icon="asterisk" />
-            <span v-text="$t('global.menu.entities.dmCqbh')">Dm Cqbh</span>
-          </b-dropdown-item>
           <!-- jhipster-needle-add-entity-to-menu - JHipster will add entities to the menu here -->
         </b-nav-item-dropdown>
         <b-nav-item-dropdown

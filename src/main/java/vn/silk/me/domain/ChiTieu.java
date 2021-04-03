@@ -13,7 +13,7 @@ import org.springframework.data.mongodb.core.mapping.Field;
  * A ChiTieu.
  */
 @Document(collection = "chi_tieu")
-public class ChiTieu extends AbstractAuditingEntity implements Serializable {
+public class ChiTieu implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
