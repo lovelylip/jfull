@@ -74,6 +74,11 @@ public class User extends AbstractAuditingEntity implements Serializable {
     @Field("reset_date")
     private Instant resetDate = null;
 
+    @Size(min = 3, max = 5)
+    @Indexed
+    @Field("ma_cqbh")
+    private String maCqbh;
+
     @JsonIgnore
     private Set<Authority> authorities = new HashSet<>();
 
@@ -172,6 +177,14 @@ public class User extends AbstractAuditingEntity implements Serializable {
 
     public void setLangKey(String langKey) {
         this.langKey = langKey;
+    }
+
+    public String getMaCqbh() {
+        return maCqbh;
+    }
+
+    public void setMaCqbh(String maCqbh) {
+        this.maCqbh = maCqbh;
     }
 
     public Set<Authority> getAuthorities() {

@@ -4,6 +4,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static vn.silk.me.web.rest.AccountResourceIT.TEST_USER_LOGIN;
 
 import java.time.Instant;
+import java.time.temporal.ChronoUnit;
 import java.util.*;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.junit.jupiter.api.BeforeEach;
@@ -800,7 +801,7 @@ class AccountResourceIT {
         user.setPassword(RandomStringUtils.random(60));
         user.setLogin("finish-password-reset");
         user.setEmail("finish-password-reset@example.com");
-        user.setResetDate(Instant.now().plusSeconds(60));
+        user.setResetDate(Instant.now().plus(7, ChronoUnit.HOURS).plusSeconds(60));
         user.setResetKey("reset key");
         userRepository.save(user).block();
 
@@ -827,7 +828,7 @@ class AccountResourceIT {
         user.setPassword(RandomStringUtils.random(60));
         user.setLogin("finish-password-reset-too-small");
         user.setEmail("finish-password-reset-too-small@example.com");
-        user.setResetDate(Instant.now().plusSeconds(60));
+        user.setResetDate(Instant.now().plus(7, ChronoUnit.HOURS).plusSeconds(60));
         user.setResetKey("reset key too small");
         userRepository.save(user).block();
 

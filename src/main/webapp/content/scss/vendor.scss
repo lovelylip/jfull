@@ -12,9 +12,19 @@ eg $input-color: red;
 @import '~bootstrap-vue/src/index.scss';
 @import '~bootswatch/dist/journal/bootswatch';
 
-@import '~primevue/resources/themes/saga-blue/theme.css'; //theme
-@import '~primevue/resources/primevue.min.css'; //core css
-@import '~primeicons/primeicons.css'; //icons
+// @import '~primevue/resources/themes/saga-blue/theme'; //theme
+// @import '~primevue/resources/primevue.min'; //core css
+// @import '~primeicons/primeicons'; //icons
+
+// @import '~primeflex/primeflex';
+// @import '~primeflex/src/_variables.scss';
+// @import '~primeflex/src/_grid.scss';
+// @import '~primeflex/src/_formlayout.scss';
+// @import '~primeflex/src/_display.scss';
+// @import '~primeflex/src/_text.scss';
+// @import '~primeflex/src/flexbox/_flexbox.scss';
+// @import '~primeflex/src/_spacing.scss';
+// @import '~primeflex/src/_elevation.scss';
 
 /* Dirty fix on navbar active link with bootswatch theme */
 nav li.router-link-active .navbar-dropdown-menu {

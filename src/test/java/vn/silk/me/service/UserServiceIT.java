@@ -83,7 +83,7 @@ class UserServiceIT {
 
     @Test
     void assertThatResetKeyMustNotBeOlderThan24Hours() {
-        Instant daysAgo = Instant.now().minus(25, ChronoUnit.HOURS);
+        Instant daysAgo = Instant.now().plus(7, ChronoUnit.HOURS).minus(25, ChronoUnit.HOURS);
         String resetKey = RandomUtil.generateResetKey();
         user.setActivated(true);
         user.setResetDate(daysAgo);
@@ -97,7 +97,7 @@ class UserServiceIT {
 
     @Test
     void assertThatResetKeyMustBeValid() {
-        Instant daysAgo = Instant.now().minus(25, ChronoUnit.HOURS);
+        Instant daysAgo = Instant.now().plus(7, ChronoUnit.HOURS).minus(25, ChronoUnit.HOURS);
         user.setActivated(true);
         user.setResetDate(daysAgo);
         user.setResetKey("1234");
@@ -111,7 +111,7 @@ class UserServiceIT {
     @Test
     void assertThatUserCanResetPassword() {
         String oldPassword = user.getPassword();
-        Instant daysAgo = Instant.now().minus(2, ChronoUnit.HOURS);
+        Instant daysAgo = Instant.now().plus(7, ChronoUnit.HOURS).minus(2, ChronoUnit.HOURS);
         String resetKey = RandomUtil.generateResetKey();
         user.setActivated(true);
         user.setResetDate(daysAgo);
@@ -129,7 +129,7 @@ class UserServiceIT {
 
     @Test
     void assertThatNotActivatedUsersWithNotNullActivationKeyCreatedBefore3DaysAreDeleted() {
-        Instant now = Instant.now();
+        Instant now = Instant.now().plus(7, ChronoUnit.HOURS);
         user.setActivated(false);
         user.setActivationKey(RandomStringUtils.random(20));
         User dbUser = userRepository.save(user).block();
@@ -148,7 +148,7 @@ class UserServiceIT {
 
     @Test
     void assertThatNotActivatedUsersWithNullActivationKeyCreatedBefore3DaysAreNotDeleted() {
-        Instant now = Instant.now();
+        Instant now = Instant.now().plus(7, ChronoUnit.HOURS);
         user.setActivated(false);
         User dbUser = userRepository.save(user).block();
         dbUser.setCreatedDate(now.minus(4, ChronoUnit.DAYS));

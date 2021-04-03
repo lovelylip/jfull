@@ -7,6 +7,10 @@ const DmCqbh = () => import('@/entities/dm-cqbh/dm-cqbh.vue');
 // prettier-ignore
 const DmCqbhDetails = () => import('@/entities/dm-cqbh/dm-cqbh-details.vue');
 const DmCqbhEdit = () => import('@/entities/dm-cqbh/dm-cqbh-edit.vue');
+// prettier-ignore
+const ChiTieu = () => import('@/entities/chi-tieu/chi-tieu.vue');
+// prettier-ignore
+const ChiTieuDetails = () => import('@/entities/chi-tieu/chi-tieu-details.vue');
 // jhipster-needle-add-entity-to-router-import - JHipster will import entities to the router here
 
 export default [
@@ -32,6 +36,18 @@ export default [
     path: '/dm-cqbh/new',
     name: 'DmCqbhNew',
     component: DmCqbhEdit,
+    meta: { authorities: [Authority.USER] },
+  },
+  {
+    path: '/chi-tieu',
+    name: 'ChiTieu',
+    component: ChiTieu,
+    meta: { authorities: [Authority.USER] },
+  },
+  {
+    path: '/chi-tieu/:chiTieuId/view',
+    name: 'ChiTieuView',
+    component: ChiTieuDetails,
     meta: { authorities: [Authority.USER] },
   },
   // jhipster-needle-add-entity-to-router - JHipster will add entities to the router here

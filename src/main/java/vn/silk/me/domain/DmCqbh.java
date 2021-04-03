@@ -3,6 +3,7 @@ package vn.silk.me.domain;
 import java.io.Serializable;
 import javax.validation.constraints.*;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
 
@@ -10,7 +11,7 @@ import org.springframework.data.mongodb.core.mapping.Field;
  * A DmCqbh.
  */
 @Document(collection = "dm_cqbh")
-public class DmCqbh implements Serializable {
+public class DmCqbh extends AbstractAuditingEntity implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
@@ -19,6 +20,7 @@ public class DmCqbh implements Serializable {
 
     @NotNull(message = "must not be null")
     @Field("ma")
+    @Indexed
     private String ma;
 
     @NotNull(message = "must not be null")
@@ -27,6 +29,7 @@ public class DmCqbh implements Serializable {
 
     @NotNull(message = "must not be null")
     @Field("ma_cha")
+    @Indexed
     private String maCha;
 
     @Field("ten_cha")

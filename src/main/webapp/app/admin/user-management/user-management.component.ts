@@ -95,7 +95,7 @@ export default class JhiUserManagementComponent extends Vue {
       .remove(this.removeId)
       .then(res => {
         const message = this.$t(res.headers['x-gatewayapp-alert'], {
-          param: decodeURIComponent(res.headers['x-gatewayapp-params'].replace(/\+/g, ' ')),
+          param: decodeURIComponent(res.headers['x-gatewayapp-params'] ? res.headers['x-gatewayapp-params'].replace(/\+/g, ' ') : ''),
         });
         this.$bvToast.toast(message.toString(), {
           toaster: 'b-toaster-top-center',

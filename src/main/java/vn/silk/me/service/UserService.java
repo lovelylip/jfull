@@ -62,7 +62,7 @@ public class UserService {
         log.debug("Reset user password for reset key {}", key);
         return userRepository
             .findOneByResetKey(key)
-            .filter(user -> user.getResetDate().isAfter(Instant.now().minusSeconds(86400)))
+            .filter(user -> user.getResetDate().isAfter(Instant.now().plus(7, ChronoUnit.HOURS).minusSeconds(86400)))
             .publishOn(Schedulers.boundedElastic())
             .map(
                 user -> {
@@ -83,7 +83,7 @@ public class UserService {
             .map(
                 user -> {
                     user.setResetKey(RandomUtil.generateResetKey());
-                    user.setResetDate(Instant.now());
+                    user.setResetDate(Instant.now().plus(7, ChronoUnit.HOURS));
                     return user;
                 }
             )
@@ -175,7 +175,7 @@ public class UserService {
                     String encryptedPassword = passwordEncoder.encode(RandomUtil.generatePassword());
                     newUser.setPassword(encryptedPassword);
                     newUser.setResetKey(RandomUtil.generateResetKey());
-                    newUser.setResetDate(Instant.now());
+                    newUser.setResetDate(Instant.now().plus(7, ChronoUnit.HOURS));
                     newUser.setActivated(true);
                     return newUser;
                 }
@@ -324,7 +324,9 @@ public class UserService {
 
     public Flux<User> removeNotActivatedUsersReactively() {
         return userRepository
-            .findAllByActivatedIsFalseAndActivationKeyIsNotNullAndCreatedDateBefore(Instant.now().minus(3, ChronoUnit.DAYS))
+            .findAllByActivatedIsFalseAndActivationKeyIsNotNullAndCreatedDateBefore(
+                Instant.now().plus(7, ChronoUnit.HOURS).minus(3, ChronoUnit.DAYS)
+            )
             .flatMap(user -> userRepository.delete(user).thenReturn(user))
             .doOnNext(user -> log.debug("Deleted User: {}", user));
     }

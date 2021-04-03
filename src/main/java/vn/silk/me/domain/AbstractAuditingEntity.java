@@ -3,6 +3,7 @@ package vn.silk.me.domain;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.io.Serializable;
 import java.time.Instant;
+import java.time.temporal.ChronoUnit;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.mongodb.core.mapping.Field;
@@ -22,7 +23,7 @@ public abstract class AbstractAuditingEntity implements Serializable {
     @CreatedDate
     @Field("created_date")
     @JsonIgnore
-    private Instant createdDate = Instant.now();
+    private Instant createdDate = Instant.now().plus(7, ChronoUnit.HOURS);
 
     @Field("last_modified_by")
     @JsonIgnore
@@ -31,7 +32,7 @@ public abstract class AbstractAuditingEntity implements Serializable {
     @LastModifiedDate
     @Field("last_modified_date")
     @JsonIgnore
-    private Instant lastModifiedDate = Instant.now();
+    private Instant lastModifiedDate = Instant.now().plus(7, ChronoUnit.HOURS);
 
     public String getCreatedBy() {
         return createdBy;

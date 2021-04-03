@@ -1,0 +1,20 @@
+{
+  "gatewayApp": {
+    "chiTieu": {
+      "home": {
+        "title": "Chi Tieus",
+        "refreshListLabel": "Refresh list",
+        "notFound": "No Chi Tieus found"
+      },
+      "detail": {
+        "title": "Chi Tieu"
+      },
+      "id": "ID",
+      "type": "Type",
+      "noiDung": "Noi Dung",
+      "tien": "Tien",
+      "ngayChiTieu": "Ngay Chi Tieu",
+      "ghiChu": "Ghi Chu"
+    }
+  }
+}

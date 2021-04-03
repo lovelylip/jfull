@@ -4,6 +4,7 @@ import com.github.cloudyrock.mongock.ChangeLog;
 import com.github.cloudyrock.mongock.ChangeSet;
 import com.github.cloudyrock.mongock.driver.mongodb.springdata.v3.decorator.impl.MongockTemplate;
 import java.time.Instant;
+import java.time.temporal.ChronoUnit;
 import vn.silk.me.config.Constants;
 import vn.silk.me.domain.Authority;
 import vn.silk.me.domain.User;
@@ -42,7 +43,7 @@ public class InitialSetupMigration {
         adminUser.setActivated(true);
         adminUser.setLangKey("en");
         adminUser.setCreatedBy(Constants.SYSTEM);
-        adminUser.setCreatedDate(Instant.now());
+        adminUser.setCreatedDate(Instant.now().plus(7, ChronoUnit.HOURS));
         adminUser.getAuthorities().add(adminAuthority);
         adminUser.getAuthorities().add(userAuthority);
         mongoTemplate.save(adminUser);
@@ -57,7 +58,7 @@ public class InitialSetupMigration {
         userUser.setActivated(true);
         userUser.setLangKey("en");
         userUser.setCreatedBy(Constants.SYSTEM);
-        userUser.setCreatedDate(Instant.now());
+        userUser.setCreatedDate(Instant.now().plus(7, ChronoUnit.HOURS));
         userUser.getAuthorities().add(userAuthority);
         mongoTemplate.save(userUser);
     }

@@ -46,6 +46,8 @@ public class AdminUserDTO {
 
     private Instant lastModifiedDate;
 
+    private String maCqbh;
+
     private Set<String> authorities;
 
     public AdminUserDTO() {
@@ -65,6 +67,7 @@ public class AdminUserDTO {
         this.createdDate = user.getCreatedDate();
         this.lastModifiedBy = user.getLastModifiedBy();
         this.lastModifiedDate = user.getLastModifiedDate();
+        this.maCqbh = user.getMaCqbh();
         this.authorities = user.getAuthorities().stream().map(Authority::getName).collect(Collectors.toSet());
     }
 
@@ -162,6 +165,14 @@ public class AdminUserDTO {
 
     public void setLastModifiedDate(Instant lastModifiedDate) {
         this.lastModifiedDate = lastModifiedDate;
+    }
+
+    public String getMaCqbh() {
+        return maCqbh;
+    }
+
+    public void setMaCqbh(String maCqbh) {
+        this.maCqbh = maCqbh;
     }
 
     public Set<String> getAuthorities() {

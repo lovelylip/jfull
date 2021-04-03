@@ -42,7 +42,7 @@
     "prodDatabaseType": "mongodb",
     "clientPackageManager": "npm",
     "languages": ["en", "vi"],
-    "lastLiquibaseTimestamp": 1617356655000,
-    "entities": ["DmCqbh"]
+    "lastLiquibaseTimestamp": 1617421239000,
+    "entities": ["DmCqbh", "ChiTieu"]
   }
 }
