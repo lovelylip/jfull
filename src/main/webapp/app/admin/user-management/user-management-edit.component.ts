@@ -40,11 +40,13 @@ export default class JhiUserManagementEdit extends Vue {
   public userAccount: IUser;
   public isSaving = false;
   public authorities: any[] = [];
+  public maCqbhs: any[] = [];
   public languages: any = this.$store.getters.languages;
 
   beforeRouteEnter(to, from, next) {
     next(vm => {
       vm.initAuthorities();
+      vm.initMaCqbhs();
       if (to.params.userId) {
         vm.init(to.params.userId);
       }
@@ -55,6 +57,7 @@ export default class JhiUserManagementEdit extends Vue {
     super();
     this.userAccount = new User();
     this.userAccount.authorities = [];
+    this.userAccount.maCqbh = '';
   }
 
   public initAuthorities() {
@@ -62,6 +65,15 @@ export default class JhiUserManagementEdit extends Vue {
       .retrieveAuthorities()
       .then(_res => {
         this.authorities = _res.data;
+      });
+  }
+
+  public initMaCqbhs() {
+    this.userManagementService()
+      .retrieveMaCqbhs()
+      .then(_res => {
+        console.log(_res.data);
+        this.maCqbhs = _res.data;
       });
   }
 

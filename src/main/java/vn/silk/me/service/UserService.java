@@ -15,8 +15,10 @@ import reactor.core.scheduler.Schedulers;
 import tech.jhipster.security.RandomUtil;
 import vn.silk.me.config.Constants;
 import vn.silk.me.domain.Authority;
+import vn.silk.me.domain.DmCqbh;
 import vn.silk.me.domain.User;
 import vn.silk.me.repository.AuthorityRepository;
+import vn.silk.me.repository.DmCqbhRepository;
 import vn.silk.me.repository.UserRepository;
 import vn.silk.me.security.AuthoritiesConstants;
 import vn.silk.me.security.SecurityUtils;
@@ -37,10 +39,18 @@ public class UserService {
 
     private final AuthorityRepository authorityRepository;
 
-    public UserService(UserRepository userRepository, PasswordEncoder passwordEncoder, AuthorityRepository authorityRepository) {
+    private final DmCqbhRepository dmCqbhRepository;
+
+    public UserService(
+        UserRepository userRepository,
+        PasswordEncoder passwordEncoder,
+        AuthorityRepository authorityRepository,
+        DmCqbhRepository dmCqbhRepository
+    ) {
         this.userRepository = userRepository;
         this.passwordEncoder = passwordEncoder;
         this.authorityRepository = authorityRepository;
+        this.dmCqbhRepository = dmCqbhRepository;
     }
 
     public Mono<User> activateRegistration(String key) {
@@ -164,6 +174,7 @@ public class UserService {
         } else {
             user.setLangKey(userDTO.getLangKey());
         }
+        user.setMaCqbh(userDTO.getMaCqbh());
         return Flux
             .fromIterable(userDTO.getAuthorities() != null ? userDTO.getAuthorities() : new HashSet<>())
             .flatMap(authorityRepository::findById)
@@ -204,6 +215,7 @@ public class UserService {
                     user.setImageUrl(userDTO.getImageUrl());
                     user.setActivated(userDTO.isActivated());
                     user.setLangKey(userDTO.getLangKey());
+                    user.setMaCqbh(userDTO.getMaCqbh());
                     Set<Authority> managedAuthorities = user.getAuthorities();
                     managedAuthorities.clear();
                     return Flux
@@ -337,5 +349,9 @@ public class UserService {
      */
     public Flux<String> getAuthorities() {
         return authorityRepository.findAll().map(Authority::getName);
+    }
+
+    public Flux<DmCqbh> getMaCqbhs() {
+        return dmCqbhRepository.findAll();
     }
 }

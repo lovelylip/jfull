@@ -18,6 +18,7 @@ import org.springframework.web.util.UriComponentsBuilder;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 import tech.jhipster.web.util.PaginationUtil;
+import vn.silk.me.domain.DmCqbh;
 import vn.silk.me.service.UserService;
 import vn.silk.me.service.dto.UserDTO;
 
@@ -69,5 +70,10 @@ public class PublicUserResource {
     @GetMapping("/authorities")
     public Mono<List<String>> getAuthorities() {
         return userService.getAuthorities().collectList();
+    }
+
+    @GetMapping("/maCqbhs")
+    public Mono<List<DmCqbh>> getMaCqbhs() {
+        return userService.getMaCqbhs().collectList();
     }
 }

@@ -24,6 +24,10 @@
               <span v-text="$t('global.field.id')">ID</span>
               <jhi-sort-indicator :current-order="propOrder" :reverse="reverse" :field-name="'id'"></jhi-sort-indicator>
             </th>
+            <th scope="col" v-on:click="changeOrder('maCqbh')">
+              <span v-text="$t('userManagement.maCqbh')">MaCqbh</span>
+              <jhi-sort-indicator :current-order="propOrder" :reverse="reverse" :field-name="'maCqbh'"></jhi-sort-indicator>
+            </th>
             <th scope="col" v-on:click="changeOrder('login')">
               <span v-text="$t('userManagement.login')">Login</span>
               <jhi-sort-indicator :current-order="propOrder" :reverse="reverse" :field-name="'login'"></jhi-sort-indicator>
@@ -58,6 +62,7 @@
             <td>
               <router-link :to="{ name: 'JhiUserView', params: { userId: user.login } }">{{ user.id }}</router-link>
             </td>
+            <td>{{ user.maCqbh }}</td>
             <td>{{ user.login }}</td>
             <td class="jhi-user-email">{{ user.email }}</td>
             <td>

@@ -145,6 +145,12 @@
               <option v-for="authority of authorities" :value="authority" :key="authority">{{ authority }}</option>
             </select>
           </div>
+          <div class="form-group">
+            <label v-text="$t('userManagement.maCqbh')">Profiles</label>
+            <select class="form-control" name="maCqbh" v-model="userAccount.maCqbh">
+              <option v-for="maCqbh of maCqbhs" :value="maCqbh.ma" :key="maCqbh">{{ maCqbh.ma + ' - ' + maCqbh.ten }}</option>
+            </select>
+          </div>
         </div>
         <div>
           <button type="button" class="btn btn-secondary" v-on:click="previousState()">
