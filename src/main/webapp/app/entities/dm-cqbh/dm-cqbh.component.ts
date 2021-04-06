@@ -5,6 +5,8 @@ import Vue2Filters from 'vue2-filters';
 import { IDmCqbh } from '@/shared/model/dm-cqbh.model';
 
 import DmCqbhService from './dm-cqbh.service';
+import TreeTable from 'primevue/treetable';
+import Column from 'primevue/column';
 
 @Component({
   mixins: [Vue2Filters.mixin],
